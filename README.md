@@ -5,6 +5,6 @@ Este repositório tem o objetivo de compartilhar os códigos utilizados no refer
 
 Como os dados originais são de uso restrito, não serão aqui disponibilizados. Ainda assim, os arquivos abaixo apontam os caminhos possíveis para o tratamento de campos textuais de queixas de pacientes.
 
-`regex_queixas_duckdb.sql` Este script importa e trata o campo textual de queixas da Rede de Urgência e Emergência (RUE) dentro do duckdb, acessando os dados originais e restritos via postgres_scan.
+`regex_queixas_duckdb.sql` Este script importa e trata o campo textual de queixas da Rede de Urgência e Emergência (RUE) dentro do duckdb, acessando os dados originais e restritos via postgres_scan. A linguagem é SQL, mas com particularidades do DuckDB.
 
 `data_analysis_pln_MRJ.R` Este script arrega os dados de atendimentos de urgência e emergência do Rio de Janeiro via DuckDB e realiza análises de séries temporais de síndrome gripal e diarreia, bem como a contagem de casos suspeitos de sarampo e rubéola, a partir de queixas e CIDs registrados nos atendimentos.
