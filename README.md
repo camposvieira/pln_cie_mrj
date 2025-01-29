@@ -1,7 +1,7 @@
 # Processamento de Linguagem Natural aplicado a registros eletrônicos: monitoramento e detecção de eventos em saúde
 [Artigo pre-print na revista Ciência & Saúde Coletiva]()
 
-[![10.5281/zenodo.14750253](https://zenodo.org/badge/DOI/10.5281/zenodo.14750253.svg)](https://doi.org/10.5281/zenodo.14750253)
+[![10.5281/zenodo.14750253](https://zenodo.org/badge/DOI/10.5281/zenodo.14747993.svg)](https://doi.org/10.5281/zenodo.14747993.)
 
 Este repositório tem o objetivo de compartilhar os códigos utilizados no referido artigo para ampliar a identificação de casos suspeitos e reforçar o monitoramento de tendências de doenças de interesse em saúde pública, por meio do uso de processamento de linguagem natural, aplicado a Registros Eletrônicos em Saúde, no Município do Rio de Janeiro (MRJ). Este foi um trabalho desenvolvido no [Centro de Inteligência Epidemiológica](https://epirio.svs.rio.br/) do MRJ.
 
