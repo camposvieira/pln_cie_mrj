@@ -377,15 +377,6 @@ from tb_queixa_classif
        -- febre (menciona ou nao)
         CASE WHEN regexp_matches(queixa_clean5, '\bfebre\b|\bhipertermia\b|\bpiretic[oa]\b|\btemperatura(\s*\w*\s*)?(alta|elevada)\b|\btax(\s*\w*\s*)?(alt[ao]|elevad[ao])\b|\bcorpo(\s*\w*\s*)?quente\b', 'i') THEN true ELSE false END AS febre,
 
-      --dores
-       --dor nos olhos
-        CASE WHEN regexp_matches(queixa_clean5, '\b(dor|algia|desconforto|pressao|incomodo)(\s*\w*\s*)?(olho(s)?|ocular|retro(o\s*)?orbital|globo|vista(s)?|retro(o\s*)?cular)\b|\b(olho(s)?|globo|vista(s)?)(\s*)(doendo|desconfort|pressao|incomod)\b', 'i')  THEN true
-            ELSE false END AS dor_olhos,
-
-       --dor abdominal
-        CASE WHEN regexp_matches(queixa_clean5, '\b(dor|incomodo|desconforto|colica)(\s*\w*\s*)?abdom(em|inal)\b', 'i') THEN true
-            ELSE false END AS dor_abdominal,
-
        --dor de cabeca
         CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(na|de)?(\s*)?cabeca\b', 'i') THEN true
             ELSE false  END AS dor_cabeca,
@@ -394,63 +385,25 @@ from tb_queixa_classif
         CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(na|de)?(\s*)?cabeca\b|\bcefal(eia|gia)\b', 'i') THEN true
             ELSE false  END AS cef_dorcabeca,
 
-       --dor de garganta
-        CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(na|de)?(\s*)?garganta\b', 'i') THEN true
-            ELSE false END AS dor_garganta,
-
-       --dor de garganta e garganta inflamada
-        CASE WHEN regexp_matches(queixa_clean5, '\b(dor|incomodo|desconforto|algia|queimacao|irritacao|vermelhidao)(\s*\w*\s*)?(na|de|para)?(\s*)?(garganta|engolir)\b|\bgarganta(\s*)(inflamada|doendo|arranhando|infeccionada|ardendo|vermelha|dolorida)\b|\bfaringite\b|\bamidalite\b', 'i') THEN true
-            ELSE false END AS garg_dor_infla,
-
-       --dor gastrica
-        CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?gastrica\b|\bdor(\s*\w*\s*)?estoma(cal|go)\b|\b(dor)?epigastrica\b', 'i') THEN true
-            ELSE false END AS dor_gastrica,
-
+      
        --dor de barriga
         CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(na|de|no)?(\s*)?barriga\b', 'i') THEN true
             ELSE false END AS dor_barriga,
 
-       --dor no peito
-        CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(no|do)?(\s*\w*\s*)peito\b|\bdor(\s*\w*\s*)?toracica\b', 'i') THEN true
-            ELSE false END AS dor_peito,
-
-       --dor no corpo
-        CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(no|do)?(\s*)?corpo\b', 'i') THEN true
-            ELSE false END AS dor_corpo,
-
-       --dor no corpo e mialgia
-        CASE WHEN regexp_matches(queixa_clean5, '\bdor(\s*\w*\s*)?(no|do)?(\s*)?corpo\b|\bmialgia\b', 'i') THEN true
-            ELSE false END AS mialgia_dorcorpo,
-
-       --dor no ouvido
-        CASE WHEN regexp_matches(queixa_clean5, '\b(dor|pressao|incomodo|desconforto|inflamacao|infecao)(\s*\w*\s*)?(no|de)?(\s*)?ouvido\b|\botalgia\b|\bouvido(\s*\w*\s*)(inflamado|doendo|infeccionado|incomodando)\b', 'i') THEN true
-            ELSE false END AS dor_ouvido,
-
+     
     --Outros sintomas
       --manchas vermelhas
         CASE WHEN regexp_matches(queixa_clean5, '\b(mancha[s]?\s*(vermelha[s]?|vermelhidao))\s*[?:na|no|em|do|pela|pelo]?\s*[pele|corpo]?\b|\b(mancha(s)?|pele|placa(s)?|pint(as|inhas))\s*(a)?vermelha(da)?(s)?\b|\beritema(tosa)?(s)?\b|\be(qui|x|c)zema(s)?\b', 'i') THEN true
             ELSE false END AS mancha_vermelha,
-
-      --mialgia
-        CASE WHEN regexp_matches(queixa_clean5, '\bmialgia\b|\b(dor|algia|dolorimento)(\s*\w*\s*)?muscul(ar|os|o)\b|\bdor(\s*\w*\s*)?(no|do)?(\s*)?corpo\b', 'i') THEN true ELSE false END AS mialgia,
 
       --diarreia
         CASE WHEN regexp_matches(queixa_clean5, '\bdiarreia\b', 'i') THEN true ELSE false END AS diarreia,
 
       --cefaleia
         CASE WHEN regexp_matches(queixa_clean5, '\bcefaleia\b', 'i') THEN true ELSE false END AS cefaleia,
-
-      --vomito
-        CASE WHEN regexp_matches(queixa_clean5, '\bvomito\b|\bemese\b|\bgo(l|r)fada(s)?\b|\bgo(l|r)(fou|fando)\b', 'i') THEN true ELSE false END AS vomito,
-
-      --petequias
-        CASE WHEN regexp_matches(queixa_clean5, '\bpetequias\b', 'i') THEN true ELSE false END AS petequias,
-
+     
       --manchas_petequias
         CASE WHEN regexp_matches(queixa_clean5, '\bpetequias\b|\bmancha[s]?\s*[vermelha[s]?]?\s*[?:na|no|em|do|pela|pelo]?\s*[pele|corpo]?\b', 'i') THEN true ELSE false END AS manchas_petequias,
-
-      --nausea
-        CASE WHEN regexp_matches(queixa_clean5, '\bnausea\b|\benjoad(o|a)\b|\b(estomago|barriga)\s*(revirad(o|a)|embrulhad(o|a))\b|\bembrulho\s*(barriga|estomago)\b|\b(e|i)ngulho\b|\b(ansia|vontade)\s*vomit(o|ar)\b', 'i') THEN true ELSE false END AS nausea,
 
       --exantemas
         CASE WHEN regexp_matches(queixa_clean5, '\bexantema\b', 'i') THEN true ELSE false END AS exantema,
@@ -491,59 +444,12 @@ from tb_queixa_classif
       --sintomas gripais com dor de garganta e tosse
         CASE WHEN regexp_matches(queixa_clean5, '\bresfriado\b|\bgripe\b|\bcoriza\b|\bsinusite\b|\bespirr(o|ando|ou)\b|\btosse\b|\b(dor|incomodo|desconforto|algia|queimacao|irritacao|vermelhidao)(\s*\w*\s*)?(na|de|para)?(\s*)?(garganta|engolir)\b|\bgarganta(\s*)(inflamada|doendo|arranhando|infeccionada|ardendo|vermelha|dolorida)\b|\bfaringite\b|\bamidalite\b', 'i') THEN true ELSE false END AS sg_garganta_tosse,
 
-      --artralgia
-        CASE WHEN regexp_matches(queixa_clean5, '\bartralgia\b|\b(dor|incomodo|sensibilidade)(\s*\w*\s*)?(no|do|na|das|nas)?(\s*)?(articula(cao|coes|r|res)|junta(s)?)\b', 'i') THEN true ELSE false END AS artralgia,
-
-      --astenia
-        CASE WHEN regexp_matches(queixa_clean5, '\bastenia\b', 'i') THEN true ELSE false END AS astenia,
 
       --garganta inflamada
         CASE WHEN regexp_matches(queixa_clean5, '\bgarganta(\s*)(inflamada|doendo)\b|\balgia(\s*)?(na|da)*(\s*)garganta\b', 'i') THEN true
             ELSE false END AS garganta_inflam,
 
-      --sincope
-        CASE WHEN regexp_matches(queixa_clean5, '\bsincope\b|\bdesmai(ou|ando|o)?\b', 'i') THEN true
-            ELSE false END AS sincope,
-
-      --sudorese
-        CASE WHEN regexp_matches(queixa_clean5, '\bsudorese\b', 'i') THEN true
-            ELSE false END AS sudorese,
-
-      --tontura
-        CASE WHEN regexp_matches(queixa_clean5, '\btontura\b', 'i') THEN true
-            ELSE false END AS tontura,
-
-      --edema
-        CASE WHEN regexp_matches(queixa_clean5, '\bedema\b', 'i') THEN true
-            ELSE false END AS edema,
-
-      --dispneia
-        CASE WHEN regexp_matches(queixa_clean5, '\bdisp(i)?neia\b|\b(falta|sem)(\s*)ar\b|\b(dificuldade|esforco)(\s*\w*\s*)?respira(r|torio)\b|\brespiracao diafragmatica\b|\bban\b|\bbatimento(\s*)asa(\s*)nasal\b|\btiragem(\s*)inter(\s*)costal\b', 'i') THEN true
-            ELSE false END AS dispneia,
-
-      --hipotensao
-        CASE WHEN regexp_matches(queixa_clean5, '\bhipotensao\b|\bpressao(\s*\w*\s*)?baixa\b|\bqueda(\s*\w*\s*)?pressao\b', 'i') THEN true
-            ELSE false END AS hipotensao,
-
-      --vertigem
-        CASE WHEN regexp_matches(queixa_clean5, '\bvertigem\b', 'i') THEN true
-            ELSE false END AS vertigem,
-
-      --tontura/vertigem
-        CASE WHEN regexp_matches(queixa_clean5, '\btont(ura|eira)\b|\bvertigem\b', 'i') THEN true
-            ELSE false END AS tontura_vertigem,
-
-      --sintomas genito urinarios
-       CASE WHEN regexp_matches(queixa_clean5, '\bd(i|e)sur(i)?a\b|\bhematur(i)?a\b|\bpolaciur(i)?a\b|\boligur(e|i)a\b|\bdiurese\b|\bitu\b|\bcistit(e|i)\b|\banuria\b|\b(dor|desconforto|queimacao|ardencia|dificuldade|urgencia|infeccao|algia|aumento)(\s*\w*\s*)?(urina(r)?|xixi|miccao|diurese|supra(\s*)pubica|urinaria)\b', 'i') THEN true
-            ELSE false END AS sintomas_urinarios,
-
-      -- efeitos do calor
-        CASE WHEN regexp_matches(queixa_clean5, '\bsincope\b|\bedema\b|\bdispneia\b|\bsudorese\b|\btont(ura|eira)\b|\bhipotensao\b|\bvertigem\b', 'i') THEN true
-            ELSE false END AS efeitos_calor,
-
-      --caxumba
-        CASE WHEN regexp_matches(queixa_clean5, '\bcaxumba\b', 'i') THEN true
-            ELSE false END AS caxumba
+    
 
 
         FROM tb_queixa_classif);
