@@ -1,5 +1,5 @@
 # Processamento de Linguagem Natural aplicado a registros eletrônicos: monitoramento e detecção de eventos em saúde
-[Artigo pre-print na revista Ciência & Saúde Coletiva]()
+[Artigo pre-print na revista Ciência & Saúde Coletiva](https://cienciaesaudecoletiva.com.br/artigos/processamento-de-linguagem-natural-aplicado-a-registros-eletronicos-monitoramento-e-deteccao-de-eventos-em-saude/19506?id=19506)
 
 [![10.5281/zenodo.14750253](https://zenodo.org/badge/DOI/10.5281/zenodo.14747993.svg)](https://doi.org/10.5281/zenodo.14747993)
 
